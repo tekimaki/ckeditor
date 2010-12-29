@@ -109,7 +109,7 @@
 
 			/* init */
 			{if ( $contentObject->isValid() && $contentObject->mInfo.format_guid eq 'bithtml' ) || 
-				(!$contentObject->isValid() && $gBitSystem->getConfig( 'default_format' ) eq 'bithtml')
+				(!$contentObject->isValid() && $contentObject->getTextFormatDefault() eq 'bithtml')
 				}
 				BitBase.addLoadHook( BitCK.CKall );
 			{else}
