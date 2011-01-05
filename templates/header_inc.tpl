@@ -109,7 +109,8 @@
 
 			/* init */
 			{if ( $contentObject->isValid() && $contentObject->mInfo.format_guid eq 'bithtml' ) || 
-				(!$contentObject->isValid() && $contentObject->getTextFormatDefault() eq 'bithtml')
+				(!$contentObject->isValid() && $contentObject->getTextFormatDefault() eq 'bithtml') ||
+				 $init_wysiwyg
 				}
 				BitBase.addLoadHook( BitCK.CKall );
 			{else}
