@@ -21,19 +21,19 @@
 						 {/if}
 					{else}
 						'{$smarty.const.CKEDITOR_PKG_URL}ckconfig.bitweaver.js'
+					{/if},
+					{if !$gBitSystem->isFeatureActive('ckedit_toolbars')}
+						toolbar: "Basic"
+					{else}
+						toolbar: "{$gBitSystem->getConfig('ckedit_toolbars')}"
 					{/if}
-					{rdelim} );
-				{if !$gBitSystem->isFeatureActive('ckedit_toolbars')}
-					oCKeditor.config.toolbar = "Basic";
-				{else}
-					oCKeditor.config.toolbar = "{$gBitSystem->getConfig('ckedit_toolbars')}";
-				{/if}
-				{if $gBitSystem->isFeatureActive('ckedit_skin')}
-					oCKeditor.config.skin = "{$gBitSystem->getConfig('ckedit_skin')}";
-				{/if}
-				{if $gBitSystem->isFeatureActive('ckedit_debug')}
-					oCKeditor.config.debug = 1;
-				{/if}
+					{if $gBitSystem->isFeatureActive('ckedit_skin')}
+						, skin: "{$gBitSystem->getConfig('ckedit_skin')}"
+					{/if}
+					{if $gBitSystem->isFeatureActive('ckedit_debug')}
+						, debug: 1
+					{/if}
+				{rdelim} );
 				BitCK.instances.push(oCKeditor);
 			{rdelim};
 
